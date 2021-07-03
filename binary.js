@@ -9,7 +9,6 @@ function binarySearch(arr, elem) {
         else end = midPoint - 1;
         midPoint = Math.floor((start + end) / 2)
     }
-    console.log(midPoint)
     return elem === arr[midPoint] ? midPoint : -1;
 }
 
@@ -23,15 +22,10 @@ function binary(array, value) {
         max = array.length - 1;
     while (min <= max) {
         guess = Math.floor((min + max) / 2)
-        if (value === array[guess]) {
-            return guess
-        } else if (value > array[guess]) {
-            min = guess + 1;
-        } else {
-            max = guess - 1;
-        }
+        if (value === array[guess]) return guess;
+        else if (value > array[guess]) min = guess + 1;
+        else max = guess - 1;
     }
-    console.log(guess)
     return -1;
 }
 
