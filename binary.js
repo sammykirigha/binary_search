@@ -29,4 +29,27 @@ function binary(array, value) {
     return -1;
 }
 
-console.log(binary([1, 2, 4, 5, 6, 7, 12, 13, 15, 19, 20, 25, 30, 39, 45, 60], 450))
+console.log(binary([1, 2, 4, 5, 6, 7, 12, 13, 15, 19, 20, 25, 30, 39, 45, 60], 45))
+
+//METHOD 3 A RECURSIVE BINARY SEARCH
+
+function recursiveBinarySearch(sortedArray, searchValue, minIndex, maxIndex) {
+    let currentElement;
+    while (minIndex <= maxIndex) {
+        let middleIndex = Math.floor((minIndex + maxIndex) / 2);
+        currentElement = sortedArray[middleIndex]
+        if (currentElement === searchValue) {
+            return middleIndex;
+        }
+        if (currentElement > searchValue) {
+            return recursiveBinarySearch(sortedArray, searchValue, minIndex, middleIndex - 1);
+        }
+        if(currentElement < searchValue){
+            return recursiveBinarySearch(sortedArray, searchValue, middleIndex + 1, maxIndex);
+        }
+    }
+    
+    return -1;
+}
+
+console.log(recursiveBinarySearch([1, 2, 4, 5, 6, 7, 12, 13, 15, 19, 20, 25, 30, 39, 45, 60, 70, 80, 90, 100], 45, 0, 19))
