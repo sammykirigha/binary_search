@@ -9,6 +9,7 @@ function binarySearch(arr, elem) {
         else end = midPoint - 1;
         midPoint = Math.floor((start + end) / 2)
     }
+    console.log(midPoint)
     return elem === arr[midPoint] ? midPoint : -1;
 }
 
